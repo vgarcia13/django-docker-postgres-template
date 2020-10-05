@@ -1,6 +1,6 @@
-# Integrity Repository
+# Django/Docker/Postgres Template Repository
 
-Dockerized and Heroku-deployed python/django application
+Dockerized and Heroku-deployed python/django application, with PostgreSQL
 
 ## Features
 
@@ -8,4 +8,7 @@ Dockerized and Heroku-deployed python/django application
 
 ## Further Reading
 
-- [Blank](https://)
+- [Coming soon...](#)
+
+## Author
+Victor H. García (vgarcia)
