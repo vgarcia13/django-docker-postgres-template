@@ -1,0 +1,30 @@
+version: '3'
+services:
+   db:
+     image: postgres
+     environment:
+       POSTGRES_HOST_AUTH_METHOD: "trust"
+     container_name: sample_postgres
+     ports:
+       - "5432:5432"
+   redis:
+     image: redis:alpine
+     # command: redis-server --requirepass redis
+     command: redis-server
+     container_name: sample_redis
+     ports:
+       - "6379:6379"
+   web:
+     build: .
+     # command: python manage.py runserver 0.0.0.0:8000
+     command: bash dockerutils/wait-for-postgres.sh
+     container_name: sample_django
+     links:
+       - db:postgres
+     volumes:
+       - .:/code
+     ports:
+       - "8000:8000"
+     depends_on:
+       - db
+       - redis
